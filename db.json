@@ -1,0 +1,22 @@
+{
+  "filters": [
+    {
+      "id": 1,
+      "description": "My Emails",
+      "predicate": "all",
+      "conditions": [
+        {
+          "field": "from",
+          "predicate": "contains",
+          "value": "praveen@gmail.com"
+        }
+      ],
+      "actions": [
+        {
+          "action_name": "Move To Folder",
+          "label_name": "Personal Emails"
+        }
+      ]
+    }
+  ]
+}

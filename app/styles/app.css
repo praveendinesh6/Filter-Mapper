@@ -1,0 +1,122 @@
+.cursor-pointer {
+  cursor: pointer;
+}
+.field-creation-container {
+  margin: 60px 20px;
+}
+.field-item {
+  margin-bottom: 20px;
+}
+.mt-5 {
+  margin-top: 5px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+.inline-block {
+  display: inline-block;
+}
+.w-5 {
+  width: 5%;
+}
+.w-30 {
+  width: 30%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-60 {
+  width: 60%;
+}
+.text-right {
+  text-align: right;
+}
+.align-middle {
+  vertical-align: middle;
+}
+svg.icon {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.main-page {
+  width: 850px;
+  margin: 0 auto;
+}
+.header-section {
+  margin: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+.table-wrapper {
+  border-bottom: 1px solid #ededed;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-wrapper thead:first-child {
+  border-top: 1px solid #e6e6e6;
+}
+.table-wrapper thead {
+  border-bottom: 1px solid #e6e6e6;
+  color: #263035;
+  background-color: #f7f7f7;
+  font-weight: 700;
+}
+.table-wrapper td {
+  padding: 12px 8px;
+}
+.form-control {
+  font-size: 13px;
+  width: 100%;
+  height: 17px;
+  padding: 5px 8px;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.form-control:focus {
+  outline: none;
+}
+.condition-section {
+  background-color: #f1f8ff;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+.condition-item {
+  padding: 15px 0px;
+}
+.condition-item .condition-field {
+  width: 17%;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0px 10px;
+}
+.actions-section {
+  margin-top: 30px;
+}
+.actions-list {
+  margin: 10px 0px 40px 0px;
+  background-color: #f1f8ff;
+  padding: 20px;
+}
+.action-field {
+  width: 25%;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0px 10px;
+}
+.action-item {
+  padding: 15px 0px;
+}
+
+.ember-power-select-trigger:focus {
+  outline: none;
+}
+.ember-power-select-trigger {
+  cursor: pointer;
+}

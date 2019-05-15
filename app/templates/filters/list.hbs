@@ -1,0 +1,26 @@
+<div class="header-section">
+  <button {{action 'addNewFilter'}}>Add new filter</button>
+</div>
+<table class="table-wrapper">
+  <thead>
+    <tr>
+      <th style="width: 40%;">Filter Name</th>
+      <th style="width: 40%;">Action Name</th>
+      <th style="width: 40%;"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |filter|}}
+      <tr>
+        <td>{{filter.description}}</td>
+        <td>
+          {{#each filter.actions as |action|}}
+            <div>
+              <span class="text-muted">{{action.action_name}}</span>&nbsp;{{action.label_name}}
+            </div>
+          {{/each}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

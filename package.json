@@ -35,8 +35,10 @@
     "ember-cli-uglify": "^2.1.0",
     "ember-data": "~3.9.0",
     "ember-export-application-global": "^2.0.0",
+    "ember-inline-svg": "^0.2.1",
     "ember-load-initializers": "^1.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-power-select": "^2.3.2",
     "ember-qunit": "^3.4.1",
     "ember-resolver": "^5.0.1",
     "ember-source": "~3.9.0",
@@ -47,5 +49,8 @@
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
+  },
+  "dependencies": {
+    "json-server": "^0.14.2"
   }
 }

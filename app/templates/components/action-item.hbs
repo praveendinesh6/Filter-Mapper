@@ -1,0 +1,16 @@
+<div class="action-item">
+  <div class="inline-block w-5">
+    {{incrementIndex index}}.
+  </div>
+  <div class="action-field">
+    {{#power-select options=constants.actionsList selected=selectedActionValue onchange=(action 'changeActionValue') as |action|}}
+      {{action.name}}
+    {{/power-select}}
+  </div>
+  {{#if canShowLabelField}}
+    <div class="action-field">{{input class="form-control" value=model.label_name}}</div>
+  {{/if}}
+  <div class="inline-block w-5 text-right align-middle cursor-pointer">
+    <span role="button" {{action removeAction model}}>{{inline-svg 'delete' class="icon"}}</span>
+  </div>
+</div>

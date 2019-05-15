@@ -1,0 +1,33 @@
+<div class="condition-item">
+  <div class="inline-block w-5">
+    {{incrementIndex index}}.
+  </div>
+  <div class="inline-block">
+    When
+  </div>
+  <div class="condition-field">
+    {{#power-select options=constants.fieldsList selected=selectedFieldValue onchange=(action 'changeFieldValue') as |field|}}
+      {{field.name}}
+    {{/power-select}}
+  </div>
+  <div class="condition-field">
+    {{#power-select options=predicateList selected=model.predicate onchange=(action (mut model.predicate)) as |predicate|}}
+      {{predicate}}
+    {{/power-select}}
+  </div>
+  {{#if isDateField}}
+    <span class="condition-field">{{input class="form-control" value=model.timeframecount}}</span>
+    <span class="condition-field">
+      {{#power-select options=constants.timeframeList selected=model.timeframe onchange=(action (mut model.timeframe)) as |time|}}
+        {{time}}
+      {{/power-select}}
+    </span>
+  {{else if isEmailField}}
+    <span class="condition-field">{{input class="form-control" value=model.email}}</span>
+  {{else}}
+    <span class="inline-block w-30 align-middle">{{textarea class="form-control" value=model.description  rows="3" }}</span>
+  {{/if}}
+  <div class="inline-block w-5 text-right align-middle cursor-pointer">
+    <span role="button" {{action removeCondition model}}>{{inline-svg 'delete' class="icon"}}</span>
+  </div>
+</div>
