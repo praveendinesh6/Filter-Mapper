@@ -1,4 +1,5 @@
 <div class="field-creation-container">
+  {{form-error errorMessages=model.errorMessages}}
   <div class="field-item w-50">
     <div class="inline-block w-30">
       Description:
@@ -22,7 +23,7 @@
     {{#each model.conditions as |condition index|}}
       {{condition-item model=condition index=index removeCondition=(action 'removeCondition')}}
     {{/each}}
-    <button {{action 'addNewCondition'}}>Add new condition</button>
+    <button class="button mt-5"{{action 'addNewCondition'}}>Add new condition</button>
   </div>
   <div class="actions-section">
     Perform the following actions
@@ -30,10 +31,11 @@
       {{#each model.actions as |filterAction index|}}
         {{action-item model=filterAction index=index removeAction=(action 'removeAction')}}
       {{/each}}
-      <button class="mt-5" {{action 'addNewAction'}}>Add new condition</button>
+      <button class="button mt-5" {{action 'addNewAction'}}>Add new action</button>
     </div>
   </div>
   <div>
-    <button {{action 'saveFilter'}}>Save filter</button>
+    <button class="button button-primary" {{action 'saveFilter'}}>Save filter</button>
+    <button class="button" {{action 'moveToList'}}>Cancel</button>
   </div>
 </div>

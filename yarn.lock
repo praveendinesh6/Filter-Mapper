@@ -3488,7 +3488,7 @@ ember-cli-htmlbars-inline-precompile@^1.0.0, ember-cli-htmlbars-inline-precompil
     heimdalljs-logger "^0.1.9"
     silent-error "^1.1.0"
 
-ember-cli-htmlbars@^2.0.3:
+ember-cli-htmlbars@^2.0.1, ember-cli-htmlbars@^2.0.3:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-2.0.5.tgz#b5a105429a6bce4f7c9c97b667e3b8926e31397f"
   integrity sha512-3f3PAxdnQ/fhQa8XP/3z4RLRgLHxV8j4Ln75aHbRdemOCjBa048KxL9l+acRLhCulbGQCMnLiIUIC89PAzLrcA==
@@ -3832,6 +3832,15 @@ ember-maybe-in-element@^0.2.0:
   integrity sha512-R5e6N8yDbfNbA/3lMZsFs2KEzv/jt80TsATiKMCqdqKuSG82KrD25cRdU5VkaE8dTQbziyBeuJs90bBiqOnakQ==
   dependencies:
     ember-cli-babel "^7.1.0"
+
+ember-notify@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/ember-notify/-/ember-notify-5.3.0.tgz#8f798b7e8bbb9cca2511a15c34838c1afdc53cf3"
+  integrity sha512-Yj7tpuBrla5PvOITWflO8aEugB0Vz57YCu9gQ3WqYXRuIfO+A0EDTv+oJ3zxzzWLO1b2PeVotTIW107PNlPYOQ==
+  dependencies:
+    ember-cli-babel "^6.6.0"
+    ember-cli-htmlbars "^2.0.1"
+    object-assign "^4.1.0"
 
 ember-power-select@^2.3.2:
   version "2.3.2"

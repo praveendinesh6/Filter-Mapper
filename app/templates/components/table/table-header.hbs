@@ -1,0 +1,11 @@
+<div class="placeholder-container {{if sorted 'sort-caret'}}">
+  <div title="{{content.key}}">
+    {{content.key}}
+  </div>
+  {{#if sorted}}
+    <span class="sort">
+      <b class="caret up"></b>
+      <b class="caret down"></b>
+    </span>
+  {{/if}}
+</div>

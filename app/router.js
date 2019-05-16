@@ -10,7 +10,7 @@ Router.map(function() {
   this.route('filters', function() {
     this.route('create', { path: '/create' });
     this.route('edit', { path: '/:filter_id/edit' });
-    this.route('list', { path: '/list' })
+    this.route('list', { path: '/' })
     this.route('details', { path: '/:filter_id' });
   });
 });

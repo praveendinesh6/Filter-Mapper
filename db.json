@@ -1,22 +1,49 @@
 {
   "filters": [
     {
-      "id": 1,
-      "description": "My Emails",
+      "description": "Other emails",
       "predicate": "all",
       "conditions": [
         {
-          "field": "from",
           "predicate": "contains",
-          "value": "praveen@gmail.com"
+          "timeframe": null,
+          "timeframecount": null,
+          "description": null,
+          "email": "others@gmail.com",
+          "field": "to",
+          "fieldType": "email"
         }
       ],
       "actions": [
         {
-          "action_name": "Move To Folder",
-          "label_name": "Personal Emails"
+          "action_name": "Add label",
+          "actionType": "update",
+          "label_name": "Other emails"
         }
-      ]
+      ],
+      "id": 2
+    },
+    {
+      "description": "new",
+      "predicate": "all",
+      "conditions": [
+        {
+          "predicate": "contains",
+          "timeframe": null,
+          "timeframecount": null,
+          "description": null,
+          "email": "praveen@gmail.com",
+          "field": "from",
+          "fieldType": "email"
+        }
+      ],
+      "actions": [
+        {
+          "action_name": "Mark as Read",
+          "actionType": "action"
+        }
+      ],
+      "id": 3
     }
   ]
 }

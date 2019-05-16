@@ -26,5 +26,11 @@ export default Service.extend({
       },
       body: JSON.stringify(data),
     }).then(response => response.json());
+  },
+  destroyRecord(api, data) {
+    let url = `${this.apiPrefix}${api}/${data.id}`;
+    return fetch(url, {
+      method: 'DELETE',
+    }).then(response => response.json());
   }
 });

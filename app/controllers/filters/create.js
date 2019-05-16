@@ -1,10 +1,11 @@
 import Controller from '@ember/controller';
-import { isBlank } from '@ember/utils';
+import { isBlank, isPresent } from '@ember/utils';
 import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   store: service(),
   constants: service(),
+  notify: service('notify'),
   loadCreationDetails() {
     if(isBlank(this.get('model.conditions'))) {
       this.set('model.conditions', [this.get('store').createRecord('conditions')]);
@@ -34,9 +35,19 @@ export default Controller.extend({
       this.set('model.predicate', value);
     },
     saveFilter() {
-      this.get('store').sendRequest('/filters', this.get('model')).then(() => {
-        this.transitionTo('filters.list');
-      })
+      let model = this.get('model');
+      let errors = model.validate();
+      let serializedModel = model.serialize();
+      if(isPresent(errors)) {
+        this.set('model.errorMessages', errors);
+        return;
+      }
+      return this.get('store').sendRequest('/filters', serializedModel).then(() => {
+        this.get('notify').success('Filter created successfully');
+        this.transitionToRoute('filters.list');
+      }).catch((errorObj) => {
+        this.get('notify').error(errorObj);
+      });
     }
   }
 });

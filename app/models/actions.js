@@ -1,5 +1,16 @@
-import EmberObject from '@ember/object';
+import commonResource from 'filter-mapper/models/common';
+import { isBlank } from '@ember/utils';
 
-export default EmberObject.extend({
+export default commonResource.extend({
   properties: ['action_name', 'label_name'],
+  validate() {
+    let errorMessages = [];
+    if(isBlank(this.get('action_name'))) {
+      errorMessages.push('Choose a action for the filter');
+    }
+    if(this.get('fieldType') === 'update' && isBlank(this.get('label_name'))) {
+      errorMessages.push('Enter the label name for the action');
+    }
+    return errorMessages;
+  }
 });

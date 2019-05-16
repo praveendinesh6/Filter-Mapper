@@ -1,0 +1,15 @@
+{{#if errorMessages}}
+  <div class="error-container-wrapper">
+    <button type="button" class="close-icon" {{action 'clearErrors'}}>&times;</button>
+    <ul>
+      <div>
+        We encountered few errors
+      </div>
+      {{#each errorMessages as |error|}}
+        <li>
+          {{error}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}

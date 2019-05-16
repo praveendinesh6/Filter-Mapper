@@ -1,0 +1,35 @@
+<div class="details-container">
+  {{! template-lint-disable invalid-interactive}}
+  <div class="close-icon" {{action 'moveToList'}}>{{inline-svg 'delete' class="icon cursor-pointer"}}</div>
+  <div class="mb-20">Description: {{model.description}}</div>
+  <div class="mb-20">
+    <div>Conditions</div>
+    {{#each model.conditions as |condition index|}}
+      <div class="mt-5">
+        {{incrementIndex index}}.
+        when
+        {{condition.field}}
+        {{condition.predicate}}
+        {{#if condition.email}}
+          <b>{{condition.email}}</b>
+        {{else if condition.timeframe}}
+          <b>{{condition.timeframecount}} {{condition.timeframe}}</b>
+        {{else}}
+          <b>{{condition.value}}</b>
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+  <div>
+    <div>Actions</div>
+    {{#each model.actions as |action index|}}
+      <div class="mt-5">
+        {{incrementIndex index}}.
+        {{action.action_name}}
+        {{#if action.label_name}}
+          as <b>{{action.label_name}}</b>
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+</div>

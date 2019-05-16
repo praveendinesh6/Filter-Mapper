@@ -1,0 +1,29 @@
+{{#if headerColumns}}
+  <thead>
+    {{#unless isLoading}}
+      <tr>
+        {{#each headerColumns as |header|}}
+          {{table/table-header content=header sortColumn=sortColumn sortOrder=sortOrder sortDidChange=sortDidChange}}
+        {{/each}}
+      </tr>
+    {{/unless}}
+  </thead>
+{{/if}}
+
+<tbody>
+  {{#if isLoading}}
+    <tr class="empty-list">
+      <td colspan="{{headerColumns.length}}">
+        {{loading-section}}
+      </td>
+    </tr>
+  {{else if isEmptyList}}
+    <tr>
+      <td class="text-center" colspan="{{headerColumns.length}}">
+        No Records found
+      </td>
+    </tr>
+  {{else}}
+    {{yield}}
+  {{/if}}
+</tbody>

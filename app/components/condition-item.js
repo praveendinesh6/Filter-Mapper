@@ -6,6 +6,7 @@ import { equal } from '@ember/object/computed';
 export default Component.extend({
   constants: service(),
   isDateField: equal('selectedFieldValue.type', 'date'),
+  isEmailField: equal('selectedFieldValue.type', 'email'),
   predicateList: computed('selectedFieldValue.type', {
     get() {
       return this.get('selectedFieldValue.type') === 'date' ? this.get('constants.datePredicateList') : this.get('constants.stringPredicateList');
@@ -15,15 +16,15 @@ export default Component.extend({
     }
   }),
   selectedFieldValue: computed('model.field', 'constants.fieldsList', function() {
-    const fieldsList = this.get('constants.fieldsList') || [];
-    return fieldsList.findBy('name', this.get('model.field'));
+    const fieldsList = this.constants.fieldsList || [];
+    return fieldsList.findBy('name', this.model.field);
   }),
   actions: {
     changeFieldValue(value) {
       let oldFieldType = this.get('selectedFieldValue.type');
       let newFieldType = value.type;
       if(oldFieldType !== newFieldType) {
-        this.get('model').setProperties({
+        this.model.setProperties({
           predicate: null,
           timeframe: null,
           timeframecount: null,
@@ -31,7 +32,7 @@ export default Component.extend({
           email: null
         });
       }
-      this.get('model').setProperties({
+      this.model.setProperties({
         field: value.name,
         fieldType: value.type
       });

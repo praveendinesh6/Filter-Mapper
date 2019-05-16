@@ -17,7 +17,10 @@ export default Component.extend({
       if(oldActionType !== newActionType) {
         this.set('label_name', null);
       }
-      this.set('model.action_name', value.name);
+      this.get('model').setProperties({
+        action_name: value.name,
+        actionType: value.type
+      });
     }
   }
 });

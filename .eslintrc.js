@@ -17,7 +17,8 @@ module.exports = {
   rules: {
     'ember/avoid-leaking-state-in-ember-objects': 'off',
     "indent": [ 2, 2, { "SwitchCase": 1 }],
-    'ember/jquery-ember-run': 'off'
+    'ember/jquery-ember-run': 'off',
+    'no-useless-escape': 0,
   },
   overrides: [
     // node files
