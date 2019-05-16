@@ -67,17 +67,39 @@ svg.icon {
   border-color: #2fa3e6;
   color: #fff;
 }
+.disabled {
+  cursor: not-allowed;
+  opacity: .3;
+}
 
 .main-page {
   width: 850px;
   margin: 0 auto;
   min-height: 400px;
 }
+.ember-notify-default.ember-notify-cn {
+	top: 0px;
+}
+.ember-notify-default .success {
+  background-color: #53B05A;
+  color: #fff;
+}
 /* Filter creation page */
 .header-section {
   margin: 20px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+.header-section .search-field-section {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+.search-field-section .search-input {
+  width: 40%;
+}
+.search-field-section .search-button {
+  width: 50%;
 }
 .table-wrapper {
   border-bottom: 1px solid #ededed;
@@ -174,27 +196,62 @@ svg.icon {
 .placeholder-container {
   position: relative;
 }
+.sort-header-name {
+  float: left;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .sortable {
   cursor:pointer;
-  .sort-caret {
-    margin-right:15px;
-  }
-  .sort {
-    top:50%;
-    .up.caret {
-      margin-bottom:-5px;
-      border-bottom-color:#fff;
-    }
-    .down.caret {
-      border-top-color:#fff;
-    }
-    .caret {
-      opacity:0.3;
-      filter:alpha(opacity=30);
-    }
-  }
 }
-
+.sort-caret {
+  margin-right:15px;
+}
+.sort {
+  top: 50%;
+  position: absolute;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+.down.caret {
+  border-top-color: #333;
+  opacity: 1;
+}
+.up.caret {
+  border-bottom: 4px solid #000;
+  border-top: 0px;
+  display: block;
+  margin-bottom: 6px;
+}
+.caret {
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+.asc .sort .down.caret, .desc .sort .up.caret {
+  opacity: 0.3
+}
+.pagination-bar {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+.pagination-bar .perpage {
+  width: 15%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.page-navigator {
+  width: 20%;
+  padding-left: 10px;
+  display: inline-block;
+}
 /* Loading animation */
 .loading-ring {
   display: inline-block;

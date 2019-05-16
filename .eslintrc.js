@@ -14,11 +14,16 @@ module.exports = {
   env: {
     browser: true
   },
+  globals: {
+    'jQuery': false
+  },
   rules: {
     'ember/avoid-leaking-state-in-ember-objects': 'off',
     "indent": [ 2, 2, { "SwitchCase": 1 }],
     'ember/jquery-ember-run': 'off',
     'no-useless-escape': 0,
+    "quote-props": [ 2, "as-needed", { "keywords": true } ],
+    'ember/closure-actions': 'off',
   },
   overrides: [
     // node files

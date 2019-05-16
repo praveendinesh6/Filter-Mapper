@@ -6,6 +6,7 @@ export default Controller.extend({
   store: service(),
   constants: service(),
   notify: service('notify'),
+
   loadCreationDetails() {
     if(isBlank(this.get('model.conditions'))) {
       this.set('model.conditions', [this.get('store').createRecord('conditions')]);
@@ -14,6 +15,7 @@ export default Controller.extend({
       this.set('model.actions', [this.get('store').createRecord('actions')]);
     }
   },
+  
   actions: {
     addNewCondition() {
       this.get('model.conditions').pushObject(this.get('store').createRecord('conditions'));

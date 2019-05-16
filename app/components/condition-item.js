@@ -1,3 +1,6 @@
+/*
+  Renders the conditions for the filter
+*/
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
@@ -7,6 +10,7 @@ export default Component.extend({
   constants: service(),
   isDateField: equal('selectedFieldValue.type', 'date'),
   isEmailField: equal('selectedFieldValue.type', 'email'),
+
   predicateList: computed('selectedFieldValue.type', {
     get() {
       return this.get('selectedFieldValue.type') === 'date' ? this.get('constants.datePredicateList') : this.get('constants.stringPredicateList');
@@ -19,6 +23,7 @@ export default Component.extend({
     const fieldsList = this.constants.fieldsList || [];
     return fieldsList.findBy('name', this.model.field);
   }),
+
   actions: {
     changeFieldValue(value) {
       let oldFieldType = this.get('selectedFieldValue.type');
@@ -34,7 +39,7 @@ export default Component.extend({
       }
       this.model.setProperties({
         field: value.name,
-        fieldType: value.type
+        field_type: value.type
       });
     }
   }

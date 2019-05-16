@@ -1,0 +1,17 @@
+<div class="pagination-bar">
+  <div class="perpage">
+    {{#power-select options=constants.perPageList selected=perPage onchange=(action (mut perPage)) as |pageValue|}}
+      {{pageValue}}
+    {{/power-select}}
+  </div>
+  {{! template-lint-disable invalid-interactive}}
+  <div class="page-navigator">
+    <a class="action {{unless showPrevious 'disabled'}}" {{action 'goToPrevious'}}>
+      <span>{{inline-svg 'left-arrow' class="icon cursor-pointer"}}</span>
+    </a>
+    {{rangeText}}
+    <a class="action" {{action 'goToNext'}}>
+      <span>{{inline-svg 'right-arrow' class="icon cursor-pointer"}}</span>
+    </a>
+  </div>
+</div>

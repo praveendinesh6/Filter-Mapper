@@ -1,3 +1,6 @@
+/*
+  Renders the table header along with the sort handling when a sortable table header is clicked
+*/
 import Component from '@ember/component';
 import { isPresent } from '@ember/utils';
 import { computed, get } from '@ember/object';

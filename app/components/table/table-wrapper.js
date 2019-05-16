@@ -1,16 +1,16 @@
+/*
+  Wrapper for the table component and handles table header
+
+  @params listHeaders - List of table header columns
+    key - name of the header column
+    width - custom width for the header
+    sort_column - sort_column value to update
+*/
 import Component from '@ember/component';
-import { computed } from '@ember/object';
-import { isBlank } from '@ember/utils';
+
 export default Component.extend({
   tagName: 'table',
   classNames: ['table-wrapper'],
-  isEmptyList: computed('content.[]', 'isLoading', function() {
-    if (isBlank(this.get('content')) && (!this.get('isLoading'))) {
-      return true;
-    } else {
-      return false;
-    }
-  }),
   actions: {
     sortDidChange() {
       this.sortDidChange();

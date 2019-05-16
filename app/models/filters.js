@@ -23,6 +23,21 @@ export default commonResource.extend({
     this._super(prop, value);
   },
 
+  serializeProperty(prop) {
+    if(prop === 'conditions') {
+      let conditions = this.get('conditions');
+      return conditions.map((condition) => {
+        return condition.serialize()
+      });
+    } else if(prop === 'actions') {
+      let actions = this.get('actions');
+      return actions.map((action) => {
+        return action.serialize()
+      });
+    }
+    return this._super(prop);
+  },
+
   validate() {
     let errors = [];
 

@@ -1,49 +1,283 @@
 {
   "filters": [
     {
-      "description": "Other emails",
-      "predicate": "all",
+      "id": 1,
+      "description": "Tech stuff",
+      "predicate": "any",
       "conditions": [
         {
+          "field": "subject",
           "predicate": "contains",
-          "timeframe": null,
-          "timeframecount": null,
-          "description": null,
-          "email": "others@gmail.com",
-          "field": "to",
-          "fieldType": "email"
+          "value": "Technology"
         }
       ],
       "actions": [
         {
           "action_name": "Add label",
-          "actionType": "update",
-          "label_name": "Other emails"
+          "label_name": "Technology"
         }
-      ],
-      "id": 2
+      ]
     },
     {
-      "description": "new",
+      "id": 2,
+      "description": "Front end",
       "predicate": "all",
       "conditions": [
         {
+          "field": "message",
           "predicate": "contains",
-          "timeframe": null,
-          "timeframecount": null,
-          "description": null,
-          "email": "praveen@gmail.com",
-          "field": "from",
-          "fieldType": "email"
+          "value": "front end"
+        }
+      ],
+      "actions": [
+        {
+          "action_name": "Add label",
+          "label_name": "front end"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "description": "back end",
+      "predicate": "all",
+      "conditions": [
+        {
+          "field": "message",
+          "predicate": "contains",
+          "value": "back end"
+        }
+      ],
+      "actions": [
+        {
+          "action_name": "Mark as Read"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "description": "Support task",
+      "predicate": "all",
+      "conditions": [
+        {
+          "field": "subject",
+          "predicate": "contains",
+          "value": "Support",
+          "field_type": "string"
+        }
+      ],
+      "actions": [
+        {
+          "action_name": "Add label",
+          "label_name": "new",
+          "action_type": "update"
+        }
+      ]
+    },
+    {
+      "description": "old emails",
+      "predicate": "all",
+      "conditions": [
+        {
+          "field": "received date",
+          "predicate": "greater than",
+          "timeframecount": "4",
+          "timeframe": "month"
+        }
+      ],
+      "actions": [
+        {
+          "action_name": "Mark as Unread"
+        },
+        {
+          "action_name": "Add label",
+          "label_name": "Old email"
+        }
+      ],
+      "id": 5
+    },
+    {
+      "id": 6,
+      "description": "new email",
+      "predicate": "all",
+      "conditions": [
+        {
+          "field": "to",
+          "predicate": "contains",
+          "email": "me@fox.com",
+          "field_type": "email"
+        }
+      ],
+      "actions": [
+        {
+          "action_name": "Add label",
+          "label_name": "new email"
+        }
+      ]
+    },
+    {
+      "description": "Generated tickets",
+      "predicate": "all",
+      "conditions": [
+        {
+          "field": "to",
+          "predicate": "contains",
+          "email": "me@support.com",
+          "field_type": "email"
+        },
+        {
+          "field": "subject",
+          "predicate": "contains",
+          "value": "Support",
+          "field_type": "string"
         }
       ],
       "actions": [
         {
           "action_name": "Mark as Read",
-          "actionType": "action"
+          "action_type": "action"
         }
       ],
-      "id": 3
+      "id": 7
+    },
+    {
+      "description": "Pricing",
+      "predicate": "all",
+      "conditions": [
+        {
+          "field": "message",
+          "predicate": "contains",
+          "value": "pricing",
+          "field_type": "string"
+        },
+        {
+          "field": "subject",
+          "predicate": "does not contains",
+          "value": "sale",
+          "field_type": "string"
+        }
+      ],
+      "actions": [
+        {
+          "action_name": "Add label",
+          "label_name": "pricing",
+          "action_type": "update"
+        },
+        {
+          "action_name": "Mark as Read",
+          "action_type": "action"
+        }
+      ],
+      "id": 8
+    },
+    {
+      "description": "Customer success",
+      "predicate": "all",
+      "conditions": [
+        {
+          "field": "message",
+          "predicate": "contains",
+          "value": "customer success",
+          "field_type": "string"
+        }
+      ],
+      "actions": [
+        {
+          "action_name": "Mark as Unread",
+          "action_type": "action"
+        },
+        {
+          "action_name": "Add label",
+          "label_name": "Customer success",
+          "action_type": "update"
+        }
+      ],
+      "id": 9
+    },
+    {
+      "description": "Official emails",
+      "predicate": "all",
+      "conditions": [
+        {
+          "field": "to",
+          "predicate": "contains",
+          "email": "praveen@fox.com",
+          "field_type": "email"
+        }
+      ],
+      "actions": [
+        {
+          "action_name": "Add label",
+          "label_name": "Official email",
+          "action_type": "update"
+        }
+      ],
+      "id": 10
+    },
+    {
+      "description": "Development task",
+      "predicate": "all",
+      "conditions": [
+        {
+          "field": "from",
+          "predicate": "contains",
+          "email": "task@fox.com",
+          "field_type": "email"
+        },
+        {
+          "field": "to",
+          "predicate": "contains",
+          "email": "praveen@fox.com",
+          "field_type": "email"
+        },
+        {
+          "field": "subject",
+          "predicate": "contains",
+          "value": "task details for the day",
+          "field_type": "string"
+        }
+      ],
+      "actions": [
+        {
+          "action_name": "Mark as Unread",
+          "action_type": "action"
+        },
+        {
+          "action_name": "Add label",
+          "label_name": "Task for the day",
+          "action_type": "update"
+        }
+      ],
+      "id": 11
+    },
+    {
+      "id": 12,
+      "description": "All new sale",
+      "predicate": "all",
+      "conditions": [
+        {
+          "field": "message",
+          "predicate": "contains",
+          "value": "Sale for the day",
+          "field_type": "string"
+        },
+        {
+          "field": "to",
+          "predicate": "does not equal",
+          "email": "praveen@fox.com",
+          "field_type": "email"
+        }
+      ],
+      "actions": [
+        {
+          "action_name": "Mark as Read",
+          "action_type": "action"
+        },
+        {
+          "action_name": "Add label",
+          "label_name": "Sale",
+          "action_type": "update"
+        }
+      ]
     }
   ]
 }

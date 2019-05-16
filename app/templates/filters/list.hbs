@@ -1,11 +1,19 @@
 <div class="header-section">
-  <button class="button button-primary" {{action 'addNewFilter'}}>Add new filter</button>
+  <div class="search-field-section">
+    {{input class="form-control search-input" value=model.searchText placeholder="Enter filter name to search"}}
+    <div class="search-button">
+      <button class="button button-primary"{{action 'searchFilter'}}>Search</button>
+      <button class="button"{{action 'clearFilter'}}>clear</button>
+    </div>
+  </div>
+  <button class="add-new-button button button-primary" {{action 'addNewFilter'}}>Add new filter</button>
 </div>
 
-{{#table/table-wrapper headerColumns=listHeaders content=model sortOrder=sort_order sortColumn=sort_column}}
+{{#table/table-wrapper headerColumns=listHeaders content=model sortOrder=sort_order sortColumn=sort_column sortDidChange=(action 'sortDidChange')}}
   {{#each model as |filter|}}
     {{! template-lint-disable invalid-interactive}}
     <tr {{action 'goToDetails' filter}}>
+      <td>{{filter.id}}</td>
       <td>{{filter.description}}</td>
       <td>
         {{#each filter.actions as |action|}}
@@ -18,9 +26,11 @@
         {{/each}}
       </td>
       <td>
-        <span class="cursor-pointer" {{action 'editFilter' filter}}>{{inline-svg 'pencil' class="icon"}}</span>
-        <span class="cursor-pointer" {{action 'removeFilter' filter}}>{{inline-svg 'remove' class="icon"}}</span>
+        <span class="cursor-pointer" {{action 'editFilter' filter bubbles=false}}>{{inline-svg 'pencil' class="icon"}}</span>
+        <span class="cursor-pointer" {{action 'removeFilter' filter bubbles=false}}>{{inline-svg 'remove' class="icon"}}</span>
       </td>
     </tr>
   {{/each}}
 {{/table/table-wrapper}}
+
+{{pagination-bar model=model page=page perPage=per_page}}

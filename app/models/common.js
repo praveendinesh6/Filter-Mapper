@@ -1,8 +1,18 @@
+/*
+
+Provides common wrapper for the models
+@method deseialize - Method to deserialize javascript object to Ember Object
+@method deserializeProperty - Method to deserialize each property in the model
+@method serialize - Method to remove null values from being passed back to server
+@method validate - Used fot adding validation for all the properties in model
+
+*/
+
 import EmberObject from '@ember/object';
 
 export default EmberObject.extend({
-  deserialize(json) {
 
+  deserialize(json) {
     Object.keys(json).forEach(prop => {
       this.deserializeProperty(prop, json[prop]);
     });
@@ -12,6 +22,7 @@ export default EmberObject.extend({
   deserializeProperty(property, value) {
     this.set(property, value);
   },
+
   serialize() {
     let props = this.properties, prop, ret = {};
 
@@ -28,4 +39,7 @@ export default EmberObject.extend({
     }
     return value;
   },
+
+  validate() {}
+
 });

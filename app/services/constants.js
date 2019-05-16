@@ -1,7 +1,10 @@
 import Service from '@ember/service';
 
 export default Service.extend({
+
   timeframeList: ['days', 'month'],
+  perPageList: ['10', '25', '50', '100'],
+
   fieldsList: [{
     name: 'from',
     type: 'email'
