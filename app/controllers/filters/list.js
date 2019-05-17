@@ -22,7 +22,7 @@ export default Controller.extend({
     },{
       key: 'Filter Name',
       width: "40%",
-      sort_column: 'description',
+      sort_column: 'name',
     },{
       key: 'Action',
       width: "40%"
@@ -36,8 +36,8 @@ export default Controller.extend({
     let searchText = this.get('searchText') || '';
     if(isPresent(this.get('searchText'))) {
       return model.filter((filterValue) => {
-        let descriptionValue = get(filterValue, 'description') || '';
-        return descriptionValue.toLowerCase().includes(searchText.toLowerCase())
+        let nameValue = get(filterValue, 'name') || '';
+        return nameValue.toLowerCase().includes(searchText.toLowerCase())
       })
     }
     return model || [];

@@ -1,6 +1,19 @@
 body {
   color: #000;
   font-weight: 400;
+  font-size: 14px;
+}
+label {
+  font-weight: 400;
+}
+.font-lg {
+  font-size: 16px;
+}
+.ff-semibold {
+  font-weight: 700;
+}
+li.ember-power-select-option {
+  margin-bottom: 0px;
 }
 .cursor-pointer {
   cursor: pointer;
@@ -11,8 +24,14 @@ body {
 .field-item {
   margin-bottom: 20px;
 }
+.no-outline {
+  outline: 0;
+}
 .mt-5 {
   margin-top: 5px;
+}
+.mt-10 {
+  margin-top: 10px;
 }
 .mb-20 {
   margin-bottom: 20px;
@@ -44,13 +63,20 @@ body {
 .align-middle {
   vertical-align: middle;
 }
+.align-sub {
+  vertical-align: sub;
+}
 svg.icon {
   width: 15px;
   height: 15px;
   fill: currentColor;
 }
+svg.icon-sm {
+  width: 12px;
+  height: 12px;
+}
 .close-icon {
- float: right;
+  float: right;
 }
 .button {
   display: inline-block;
@@ -59,30 +85,30 @@ svg.icon {
   vertical-align: middle;
   cursor: pointer;
   border: 1px solid transparent;
-  padding: 0px 12px;
+  padding: 0px 9px;
   border-radius: 3px;
-  color: #333;
+  color: #7915fb;
   background-color: #fff;
-  border-color: #ddd;
-  font-size: 12px;
+  border-color: #7915fb;
+  font-size: 11px;
   font-weight: 500;
 }
 button.button:hover, button.button:focus {
-  background-color: #fff;
-  border-color: #ddd;
-  color: #000;
+  background-color: #f4f2ff;
+  border-color: #7915fb;
+  color: #7915fb;
 }
 .button:focus {
   outline: none;
 }
 .button-primary {
-  background-color: #2fa3e6;
-  border-color: #2fa3e6;
+  background-color: #7915fb;
+  border-color: #7915fb;
   color: #fff;
 }
 button.button-primary:hover {
-  background-color: #3a90c1;
-  border-color: #3a90c1;
+  background-color: #5615a9;
+  border-color: #5615a9;
   color: #fff;
 }
 .disabled {
@@ -91,11 +117,13 @@ button.button-primary:hover {
 }
 
 .main-page {
-  width: 850px;
-  margin: 0 auto;
+  width: 950px;
+  margin: 20px auto 50px auto;
   min-height: 400px;
-  background-color: #f7fbff;
+  background-color: #f9f7ff;
+  border: 1px solid #c0aaff;
   padding: 20px;
+  border-radius: 5px;
 }
 .ember-notify-default.ember-notify-cn {
 	top: 0px;
@@ -131,6 +159,7 @@ button.button-primary:hover {
 .table-wrapper th {
   text-align: left;
   padding: 5px 10px;
+  background-color: #efe9ff;
 }
 .table-wrapper thead:first-child {
   border-top: 1px solid #e6e6e6;
@@ -141,7 +170,8 @@ button.button-primary:hover {
   background-color: #f7f7f7;
   font-weight: 700;
 }
-.table-wrapper td {
+.table-wrapper tr:hover td {
+  background-color: #f2edff;
   cursor: pointer;
 }
 input.form-control, textarea.form-control{
@@ -160,26 +190,34 @@ input.form-control, textarea.form-control{
 .form-control:focus {
   outline: none;
 }
+.condition-type {
+  padding-left: 20px;
+}
 .condition-section {
-  background-color: #ddeeff;
-  margin-bottom: 40px;
+  margin: 10px 0 40px 0;
   padding: 20px;
+  background-color: #4400cc0a;
+  border-left: 1px solid #4400cb;
 }
 .condition-item {
   padding: 15px 0px;
 }
 .condition-item .condition-field {
-  width: 17%;
+  width: 20%;
   display: inline-block;
   vertical-align: middle;
   padding: 0px 10px;
+}
+.action svg {
+  fill: #9b4dca;
 }
 .actions-section {
   margin-top: 30px;
 }
 .actions-list {
   margin: 10px 0px 40px 0px;
-  background-color: #ddeeff;
+  background-color: #4400cc0a;
+  border-left: 1px solid #4400cb;
   padding: 20px;
 }
 .action-field {
@@ -202,7 +240,7 @@ input.form-control, textarea.form-control{
 }
 .details-container {
   max-width: 400px;
-  margin: 60px auto;
+  margin: 50px auto;
 }
 
 /* Ember power select*/
@@ -211,6 +249,7 @@ input.form-control, textarea.form-control{
 }
 .ember-power-select-trigger {
   cursor: pointer;
+  min-height: 2.2em;
 }
 
 /* table css */

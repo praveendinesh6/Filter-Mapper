@@ -1,16 +1,16 @@
 <div class="field-creation-container">
   {{form-error errorMessages=model.errorMessages}}
   <div class="field-item w-50">
-    <div class="inline-block w-30">
-      Description:
+    <div class="inline-block w-30 font-lg  ff-semibold">
+      Name:
     </div>
     <div class="inline-block w-60">
-      {{input class="form-control" value=model.description}}
+      {{input class="form-control" value=model.name}}
     </div>
   </div>
   <div class="field-item w-60">
-    <div>Condition Type</div>
-    <div class="mt-5">
+    <div class="font-lg ff-semibold">Condition Type</div>
+    <div class="mt-10 condition-type">
       <label class="cursor-pointer">
         {{radio-button value="all" selection=model.predicate  onChange=(action 'updatePredicate')}} All Conditions are met
       </label>
@@ -19,19 +19,20 @@
       </label>
     </div>
   </div>
+  <span class="font-lg ff-semibold">Conditions</span>
   <div class="condition-section">
     {{#each model.conditions as |condition index|}}
       {{condition-item model=condition index=index removeCondition=(action 'removeCondition')}}
     {{/each}}
-    <button class="button mt-5"{{action 'addNewCondition'}}>Add new condition</button>
+    <button class="button mt-10"{{action 'addNewCondition'}}>Add new condition</button>
   </div>
   <div class="actions-section">
-    Perform the following actions
+    <span class="font-lg ff-semibold">Perform the following actions</span>
     <div class="actions-list">
       {{#each model.actions as |filterAction index|}}
         {{action-item model=filterAction index=index removeAction=(action 'removeAction')}}
       {{/each}}
-      <button class="button mt-5" {{action 'addNewAction'}}>Add new action</button>
+      <button class="button mt-10" {{action 'addNewAction'}}>Add new action</button>
     </div>
   </div>
   <div>

@@ -5,7 +5,7 @@ import { inject as service } from '@ember/service';
 
 export default commonResource.extend({
   store: service(),
-  properties: ['id', 'description', 'predicate', 'conditions', 'actions'],
+  properties: ['id', 'name', 'predicate', 'conditions', 'actions'],
 
   deserializeProperty(prop, value) {
     if (prop === 'conditions') {
@@ -41,8 +41,8 @@ export default commonResource.extend({
   validate() {
     let errors = [];
 
-    if (isBlank(this.get('description'))) {
-      errors.push('Enter description for the filter');
+    if (isBlank(this.get('name'))) {
+      errors.push('Enter name for the filter');
     }
     this.get('conditions').forEach((condition) => {
       errors = errors.concat(condition.validate());

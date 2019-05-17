@@ -7,13 +7,13 @@
   {{! template-lint-disable invalid-interactive}}
   <div class="page-navigator">
     <a class="action {{unless showPrevious 'disabled'}}" {{action 'goToPrevious'}}>
-      <span>{{inline-svg 'left-arrow' class="icon cursor-pointer"}}</span>
+      <span>{{inline-svg 'left-arrow' class="icon cursor-pointer align-sub"}}</span>
     </a>
     {{#if rangeText}}
       {{rangeText}}
     {{/if}}
     <a class="action" {{action 'goToNext'}}>
-      <span>{{inline-svg 'right-arrow' class="icon cursor-pointer"}}</span>
+      <span>{{inline-svg 'right-arrow' class="icon cursor-pointer align-sub"}}</span>
     </a>
   </div>
 </div>

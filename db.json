@@ -2,7 +2,7 @@
   "filters": [
     {
       "id": 1,
-      "description": "Tech stuff",
+      "name": "Tech stuff",
       "predicate": "any",
       "conditions": [
         {
@@ -20,7 +20,7 @@
     },
     {
       "id": 2,
-      "description": "Front end",
+      "name": "Front end",
       "predicate": "all",
       "conditions": [
         {
@@ -38,7 +38,7 @@
     },
     {
       "id": 3,
-      "description": "back end",
+      "name": "back end",
       "predicate": "all",
       "conditions": [
         {
@@ -55,7 +55,7 @@
     },
     {
       "id": 4,
-      "description": "Support task",
+      "name": "Support task",
       "predicate": "all",
       "conditions": [
         {
@@ -74,7 +74,7 @@
       ]
     },
     {
-      "description": "old emails",
+      "name": "old emails",
       "predicate": "all",
       "conditions": [
         {
@@ -97,7 +97,7 @@
     },
     {
       "id": 6,
-      "description": "new email",
+      "name": "new email",
       "predicate": "all",
       "conditions": [
         {
@@ -115,7 +115,7 @@
       ]
     },
     {
-      "description": "Generated tickets",
+      "name": "Generated tickets",
       "predicate": "all",
       "conditions": [
         {
@@ -140,7 +140,7 @@
       "id": 7
     },
     {
-      "description": "Pricing",
+      "name": "Pricing",
       "predicate": "all",
       "conditions": [
         {
@@ -170,7 +170,7 @@
       "id": 8
     },
     {
-      "description": "Customer success",
+      "name": "Customer success",
       "predicate": "all",
       "conditions": [
         {
@@ -194,7 +194,7 @@
       "id": 9
     },
     {
-      "description": "Official emails",
+      "name": "Official emails",
       "predicate": "all",
       "conditions": [
         {
@@ -214,7 +214,7 @@
       "id": 10
     },
     {
-      "description": "Development task",
+      "name": "Development task",
       "predicate": "all",
       "conditions": [
         {
@@ -251,7 +251,7 @@
     },
     {
       "id": 12,
-      "description": "All new sale",
+      "name": "All new sale",
       "predicate": "all",
       "conditions": [
         {
@@ -275,6 +275,43 @@
         {
           "action_name": "Add label",
           "label_name": "Sale",
+          "action_type": "update"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Pending tickets",
+      "predicate": "any",
+      "conditions": [
+        {
+          "field": "subject",
+          "predicate": "contains",
+          "value": "Pending value",
+          "field_type": "string"
+        },
+        {
+          "field": "message",
+          "predicate": "contains",
+          "value": "New added thing",
+          "field_type": "string"
+        },
+        {
+          "field": "received date",
+          "predicate": "less than",
+          "timeframecount": "3",
+          "timeframe": "month",
+          "field_type": "date"
+        }
+      ],
+      "actions": [
+        {
+          "action_name": "Mark as Unread",
+          "action_type": "action"
+        },
+        {
+          "action_name": "Add label",
+          "label_name": "pending",
           "action_type": "update"
         }
       ]

@@ -33,7 +33,7 @@ export default Component.extend({
           predicate: null,
           timeframe: null,
           timeframecount: null,
-          description: null,
+          name: null,
           email: null
         });
       }
