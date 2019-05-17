@@ -5,9 +5,15 @@ import TextField from '@ember/component/text-field';
 import { debounce } from '@ember/runloop';
 
 export default TextField.extend({
+  init() {
+    this._super(...arguments);
+    this.updateInputValue();
+  },
   didUpdateAttrs() {
     this._super(...arguments);
-
+    this.updateInputValue();
+  },
+  updateInputValue() {
     // Input value should be updated when valueRef changes. This should not happen for normal valueRef update
     let valueRef = this.get('valueRef');
     let previousValue = this.get('previousValue');

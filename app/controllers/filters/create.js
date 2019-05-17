@@ -15,7 +15,7 @@ export default Controller.extend({
       this.set('model.actions', [this.get('store').createRecord('actions')]);
     }
   },
-  
+
   actions: {
     addNewCondition() {
       this.get('model.conditions').pushObject(this.get('store').createRecord('conditions'));
@@ -47,8 +47,8 @@ export default Controller.extend({
       return this.get('store').sendRequest('/filters', serializedModel).then(() => {
         this.get('notify').success('Filter created successfully');
         this.transitionToRoute('filters.list');
-      }).catch((errorObj) => {
-        this.get('notify').error(errorObj);
+      }).catch(() => {
+        this.get('notify').error('Filter could not be saved');
       });
     }
   }

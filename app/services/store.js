@@ -23,7 +23,12 @@ export default Service.extend({
     let url = `${this.apiPrefix}${api}`;
     return fetch(url, {
       method: 'GET'
-    }).then(response => response.json());
+    }).then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw response;
+    });
   },
 
   sendRequest(api, data) {
@@ -39,7 +44,12 @@ export default Service.extend({
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data),
-    }).then(response => response.json());
+    }).then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw response;
+    });
   },
 
   findAll(api, params) {
@@ -49,13 +59,23 @@ export default Service.extend({
     }
     return fetch(url, {
       method: 'GET'
-    }).then(response => response.json());
+    }).then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw response;
+    });
   },
 
   destroyRecord(api, data) {
     let url = `${this.apiPrefix}${api}/${data.id}`;
     return fetch(url, {
       method: 'DELETE',
-    }).then(response => response.json());
+    }).then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw response;
+    });
   }
 });

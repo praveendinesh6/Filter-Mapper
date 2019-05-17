@@ -40,7 +40,7 @@ export default Controller.extend({
         return descriptionValue.toLowerCase().includes(searchText.toLowerCase())
       })
     }
-    return model;
+    return model || [];
   }),
 
   actions: {
@@ -60,6 +60,8 @@ export default Controller.extend({
       this.get('store').destroyRecord('/filters', filter).then(() => {
         this.get('notify').success('Filter deleted successfully');
         this.get('model').removeObject(filter);
+      }).catch(() => {
+        this.get('notify').error('Filter could not be deleted');
       });
     }
   }

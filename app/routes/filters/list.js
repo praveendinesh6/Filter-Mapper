@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend({
   store: service(),
+  notify: service('notify'),
   queryParams: {
     page: {
       refreshModel: true
@@ -25,7 +26,11 @@ export default Route.extend({
       _sort: params.sort_column,
       _order: params.sort_order === 'A' ? 'asc' : 'desc'
     }
-    return this.get('store').findAll('/filters', paramsMap);
+    return this.get('store').findAll('/filters', paramsMap).then((json) => {
+      return json;
+    }).catch(() => {
+      this.get('notify').error('Could not fetch filter list');
+    });
   },
 
   rresetController(controller, isExiting) {

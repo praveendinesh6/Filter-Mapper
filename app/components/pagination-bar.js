@@ -8,6 +8,7 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 import { gt } from '@ember/object/computed';
+import { isPresent } from '@ember/utils';
 
 export default Component.extend({
   constants: service(),
@@ -17,9 +18,11 @@ export default Component.extend({
     let page = this.page;
     let perPage = this.perPage;
     let model = this.model;
-    let start = ((page - 1) * perPage) + 1;
-    let end = ((page - 1) * perPage) + model.length;
-    return `${start} - ${end}`;
+    if(isPresent(model)) {
+      let start = ((page - 1) * perPage) + 1;
+      let end = ((page - 1) * perPage) + model.length;
+      return `${start} - ${end}`;
+    }
   }),
 
   actions: {

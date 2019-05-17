@@ -9,7 +9,9 @@
     <a class="action {{unless showPrevious 'disabled'}}" {{action 'goToPrevious'}}>
       <span>{{inline-svg 'left-arrow' class="icon cursor-pointer"}}</span>
     </a>
-    {{rangeText}}
+    {{#if rangeText}}
+      {{rangeText}}
+    {{/if}}
     <a class="action" {{action 'goToNext'}}>
       <span>{{inline-svg 'right-arrow' class="icon cursor-pointer"}}</span>
     </a>
