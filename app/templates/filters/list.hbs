@@ -1,16 +1,15 @@
 <div class="header-section">
   <div class="search-field-section">
-    {{input class="form-control search-input" value=model.searchText placeholder="Enter filter name to search"}}
+    {{search-input class="form-control search-input" placeholder="Enter filter name to search" valueRef=searchText}}
     <div class="search-button">
-      <button class="button button-primary"{{action 'searchFilter'}}>Search</button>
-      <button class="button"{{action 'clearFilter'}}>clear</button>
+      <button class="button" {{action 'clearFilter'}}>clear</button>
     </div>
   </div>
   <button class="add-new-button button button-primary" {{action 'addNewFilter'}}>Add new filter</button>
 </div>
 
-{{#table/table-wrapper headerColumns=listHeaders content=model sortOrder=sort_order sortColumn=sort_column sortDidChange=(action 'sortDidChange')}}
-  {{#each model as |filter|}}
+{{#table/table-wrapper headerColumns=listHeaders content=filterdList sortOrder=sort_order sortColumn=sort_column sortDidChange=(action 'sortDidChange')}}
+  {{#each filterdList as |filter|}}
     {{! template-lint-disable invalid-interactive}}
     <tr {{action 'goToDetails' filter}}>
       <td>{{filter.id}}</td>
@@ -33,4 +32,4 @@
   {{/each}}
 {{/table/table-wrapper}}
 
-{{pagination-bar model=model page=page perPage=per_page}}
+{{pagination-bar model=filterdList page=page perPage=per_page}}

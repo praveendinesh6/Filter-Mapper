@@ -1,15 +1,18 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
+import { isPresent } from '@ember/utils';
+import { get, computed } from '@ember/object';
 
 export default Controller.extend({
   notify: service('notify'),
-  queryParams: ['page', 'per_page', 'sort_column', 'sort_order', 'search_text'],
+  store: service(),
+  queryParams: ['page', 'per_page', 'sort_column', 'sort_order'],
 
   page: 1,
   per_page: 10,
   sort_column: 'id',
   sort_order: 'D',
-  search_text: '',
+  searchText: '',
 
   listHeaders: [
     {
@@ -28,15 +31,21 @@ export default Controller.extend({
     }
   ],
 
-  actions: {
-    searchFilter() {
-      this.setProperties({
-        page: 1,
-        search_text: this.model.searchText
+  filterdList: computed('searchText', 'model.[]', function() {
+    let model = this.get('model');
+    let searchText = this.get('searchText') || '';
+    if(isPresent(this.get('searchText'))) {
+      return model.filter((filterValue) => {
+        let descriptionValue = get(filterValue, 'description') || '';
+        return descriptionValue.toLowerCase().includes(searchText.toLowerCase())
       })
-    },
+    }
+    return model;
+  }),
+
+  actions: {
     clearFilter() {
-      this.set('search_text', '');
+      this.set('searchText', null);
     },
     sortDidChange() {
       this.set('page', 1);

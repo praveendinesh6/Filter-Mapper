@@ -1,5 +1,4 @@
 import Route from '@ember/routing/route';
-import { isPresent } from '@ember/utils';
 import { inject as service } from '@ember/service';
 
 export default Route.extend({
@@ -16,9 +15,6 @@ export default Route.extend({
     },
     sort_order: {
       refreshModel: true
-    },
-    search_text: {
-      refreshModel: true
     }
   },
 
@@ -29,16 +25,18 @@ export default Route.extend({
       _sort: params.sort_column,
       _order: params.sort_order === 'A' ? 'asc' : 'desc'
     }
-    if(isPresent(params.search_text)) {
-      paramsMap.description_like = params.search_text;
-    }
     return this.get('store').findAll('/filters', paramsMap);
   },
 
-  setupController(controller, model) {
-    this._super(controller, model);
-    if(isPresent(controller.search_text)) {
-      model.set('searchText', controller.search_text);
+  rresetController(controller, isExiting) {
+    if (isExiting) {
+      controller.setProperties({
+        searchText: '',
+        page: 1,
+        per_page: 10,
+        sort_column: 'id',
+        sort_order: 'D'
+      });
     }
   },
 
